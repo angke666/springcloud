@@ -1,0 +1,20 @@
+server:
+  port: 1101
+spring:
+  application:
+    name: api-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka/
+zuul:
+  routes:
+    api-a:
+      path: /admin/**
+      serviceId: user-service
+    api-b:
+      path: /user/**
+      serviceId: user-consumer
+    baidu:
+      path: /baidu/**
+      serviceId: http://www.baidu.com/ #直接重定向

@@ -1,0 +1,21 @@
+server:
+  port: 2002
+spring:
+  application:
+    name: hystrix-turbine
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka/
+turbine:
+  # 指定聚合哪些集群，多个使用","分割，默认为default。可使用http://.../turbine.stream?cluster={clusterConfig之一}访问
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: new String("default")
+  app-config: user-consumer
+  combine-host-port: true
+management:r
+  endpoints:
+    web:
+      exposure:
+        include: /actuator/hystrix.stream

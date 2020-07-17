@@ -1,0 +1,21 @@
+server:
+  port: 1003
+spring:
+  application:
+    name: user-consumer
+  devtools:
+    restart:
+      enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka/
+hystrix:
+  metrics:
+    enabled: true
+    polling-interval-ms: 5000
+feign:
+  hystrix:
+    enabled: true
+
+

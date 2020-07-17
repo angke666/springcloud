@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:shiro="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    当前用户：<span th:text="${name}"></span>,欢迎登录！（id：<span th:text="${id}"></span>）
+    <span shiro:hasRole="admin">
+        <h1>管理员内容</h1>
+    </span>
+    <span shiro:hasRole="administrator">
+        <h1>超级管理员内容</h1>
+    </span>
+    <span shiro:hasPermission="user:add">
+        添加
+    </span>
+    <span shiro:hasPermission="user:edit">
+        修改
+    </span>
+</body>
+</html>
